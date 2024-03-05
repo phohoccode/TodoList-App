@@ -1,0 +1,40 @@
+#root.theme-dark .header,
+#root.theme-dark,
+#root.theme-dark .footer {
+    background-color: #2f3e46;
+    color: #f1faee;
+    transition: .3s;
+}
+
+#root.theme-dark ::placeholder {
+    color: #f1faee;
+}
+
+#root.theme-dark .input-todo,
+#root.theme-dark .theme,
+#root.theme-dark .add,
+#root.theme-dark .input-todo,
+#root.theme-dark .save,
+#root.theme-dark .toggle,
+#root.theme-dark .action,
+#root.theme-dark .progress-bar
+ {
+    border-color: #f1faee;
+    color: #f1faee;
+}
+
+#root.theme-dark .todo-list > li {
+    border-color: #f1faee;
+    color: #f1faee;
+}
+
+#root.theme-dark .toggle:checked {
+    background-color: #f1faee;
+}
+
+#root.theme-dark .toggle:checked::after {
+    border-left-color: #2f3e46;
+    border-bottom: 2px solid #2f3e46;
+    border-right: 2px solid #2f3e46;
+    border-top-color: #2f3e46;
+}
