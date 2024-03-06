@@ -5,7 +5,7 @@ import footer from "../component/footer.js"
 import { connect } from "../store.js"
 
 
-function app({todos}) {
+function app() {
     return html`
        ${header()}
        ${todoList()}

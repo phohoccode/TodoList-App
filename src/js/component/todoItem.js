@@ -17,18 +17,21 @@ function todoItem({todo, index, editIndex}) {
                 </div>
                 <div class="actions">
                     <button 
+                    title="Download"
                         class="action download"
                         onclick="dispatch('download', ${index})"
                     >
                         <i class="fa-light fa-arrow-down-to-line"></i>
                     </button>
                     <button
+                    title="Edit"
                          class="action edit"
                          onclick="dispatch('startEdit', ${index})"
                     >    
                         <i class="fa-light fa-pen"></i>
                     </button>
                     <button 
+                    title="Delete"
                         class="action delete"
                         onclick="dispatch('delete', ${index})"
                     >
@@ -41,12 +44,23 @@ function todoItem({todo, index, editIndex}) {
                     type="text" 
                     class="input-edit" 
                     value="${todo.content}">
-                <button 
+                <div class="actions">
+                    <button 
+                    title="Cancel"
+                    class="cancel"
+                    onclick="dispatch('cancel')"
+                    >
+                    Cancel
+                    </button>
+
+                    <button 
+                    title="Save"
                     class="save"
-                    onclick="dispatch('endEdit', document.querySelector('.input-edit').value)"
-                >
+                    onclick="dispatch('endEdit', document.querySelectorAll('.input-edit')[${index}].value)"
+                    >
                     Save
-                </button>
+                    </button>
+                </div>
             </div>
         </li>
     `

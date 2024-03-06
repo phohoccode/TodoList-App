@@ -10,6 +10,10 @@ const init = {
 }
 
 const actions = {
+    changeTheme() {
+        const body = document.querySelector('body')
+        body.classList.toggle('theme-dark')
+    },
     add({todos}, content) {
         if (content) {
             todos.push({content, completed: false})
@@ -18,6 +22,12 @@ const actions = {
     },
     toggle({todos}, index) {
         const todo = todos[index]
+        const audio = document.querySelector('audio')
+
+        if (!todo.completed) {
+            audio.currentTime = .5
+            audio.play()
+        }
         todo.completed = !todo.completed
         storage.set(todos)
     },
@@ -37,16 +47,20 @@ const actions = {
     startEdit(state, index) {
         state.editIndex = index
     },
-    endEdit(state, content) {
+    endEdit(state, value) {
         if (state.editIndex !== null) {
-            if (content) {
-                state.todos[state.editIndex].content = content
+            if (value) {
+                state.todos[state.editIndex].content = value
                 storage.set(state.todos)
             } else {
                 this.delete(state, state.editIndex)
             }
             state.editIndex = null
+            value = ''
         }
+    },
+    cancel(state) {
+        state.editIndex = null
     }
 }
 

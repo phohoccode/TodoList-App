@@ -5,7 +5,7 @@ import {connect} from "../store.js"
 function todoList({todos}) {
     return html`
     <section class="main">
-        <h2 class="sub-title">Task</h2>
+        <span class="sub-title">Task</span>
         <ul class="todo-list">
             ${todos.map((todo, index) => todoItem({todo, index}))}
         </ul>
